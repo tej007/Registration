@@ -29,7 +29,7 @@ class RegistrationForm extends Component {
 
   onBlurLastName = () => {
     const isValidLastName = this.validLastName()
-    this.setState({showFirstNameError: !isValidLastName})
+    this.setState({showLastNameError: !isValidLastName})
   }
 
   onChangeFirstName = event => {
@@ -64,24 +64,22 @@ class RegistrationForm extends Component {
   }
 
   renderFirstName = () => {
-    const {firstName,showFirstNameError} = this.state
+    const {firstName, showFirstNameError} = this.state
     const errorHighlight = showFirstNameError ? 'error-field' : ''
     return (
       <>
-        <>
-          <label className="input-label" htmlFor="firstName">
-            FIRST NAME
-          </label>
-          <input
-            type="text"
-            id="firstName"
-            className={`first-name-input-field ${errorHighlight}`}
-            value={firstName}
-            placeholder="First name"
-            onChange={this.onChangeFirstName}
-            onBlur={this.onBlurFirstName}
-          />
-        </>
+        <label className="input-label" htmlFor="firstName">
+          FIRST NAME
+        </label>
+        <input
+          type="text"
+          id="firstName"
+          className={`first-name-input-field ${errorHighlight}`}
+          value={firstName}
+          placeholder="First name"
+          onChange={this.onChangeFirstName}
+          onBlur={this.onBlurFirstName}
+        />
       </>
     )
   }
@@ -98,7 +96,7 @@ class RegistrationForm extends Component {
           type="text"
           className={`last-name-input-field ${errorHighlight}`}
           id="lastName"
-          value="LastName"
+          value={lastName}
           placeholder="LastName"
           onBlur={this.onBlurLastName}
           onChange={this.onChangeLastName}
